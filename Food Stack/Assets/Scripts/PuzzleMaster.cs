@@ -10,6 +10,8 @@ public class PuzzleMaster : MonoBehaviour
     public Tray tray;
     public List<String> answer;
     public bool solved = false;
+
+    public GameObject indicator;
     void Start()
     {
         
@@ -19,6 +21,13 @@ public class PuzzleMaster : MonoBehaviour
     void Update()
     {
         isSolved();
+        if (solved)
+        {
+            indicator.GetComponent<SpriteRenderer>().color = Color.green;
+        } else
+        {
+            indicator.GetComponent<SpriteRenderer>().color = Color.red;
+        }
     }
 
     public bool isSolved()
