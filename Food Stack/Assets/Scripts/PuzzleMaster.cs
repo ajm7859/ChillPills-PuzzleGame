@@ -12,9 +12,20 @@ public class PuzzleMaster : MonoBehaviour
     public bool solved = false;
 
     public GameObject indicator;
+
+    public int numberOfItems;
+
+    public int currentIndex;
+
+    /*
+    when an item is clicked, change the sorting order to be one more than the current index?
+    or specifically when an item is dropped on tray
+    sorting order is plus one when an object collides with tray, back to zero if dragged off
+    also update current index based off how many items are on tray
+    **/
     void Start()
     {
-        
+        currentIndex = 0;
     }
 
     // Update is called once per frame

@@ -8,15 +8,17 @@ public class FoodItems : MonoBehaviour
     // Start is called before the first frame update
     public Tray tray;
     public String foodName;
+
+    public int index;
     void Start()
     {
-        
+        index = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.GetComponent<SpriteRenderer>().sortingOrder = index;
     }
 
     public String getString()
