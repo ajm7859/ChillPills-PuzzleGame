@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DragNDrop : MonoBehaviour
 {
-    bool isDraggable;
-    bool isDragging;
+    public bool isDraggable;
+    public bool isDragging;
     Collider2D objectCollider;
 
     // Start is called before the first frame update

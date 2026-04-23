@@ -17,6 +17,8 @@ public class PuzzleMaster : MonoBehaviour
 
     public int currentIndex;
 
+    public SolvedTray solvedTray;
+
     /*
     when an item is clicked, change the sorting order to be one more than the current index?
     or specifically when an item is dropped on tray
@@ -43,22 +45,25 @@ public class PuzzleMaster : MonoBehaviour
 
     public bool isSolved()
     {
-        if (tray.items.Count == answer.Count)
-        {
-            for (int i = 0; i < tray.items.Count; i++)
-            {
-                if (tray.items[i].getString() != answer[i])
-                {
-                    solved = false;
-                    return false;
-                } 
-            }
-            solved = true;
-            return true;
-        } else
-        {
-            solved = false;
-            return false;
-        }
+        solved = solvedTray.checkIfCorrect(tray);
+        // print(solvedTray.checkIfCorrect(tray));
+        return solvedTray.checkIfCorrect(tray);
+        // if (tray.items.Count == answer.Count)
+        // {
+        //     for (int i = 0; i < tray.items.Count; i++)
+        //     {
+        //         if (tray.items[i].getString() != answer[i])
+        //         {
+        //             solved = false;
+        //             return false;
+        //         } 
+        //     }
+        //     solved = true;
+        //     return true;
+        // } else
+        // {
+        //     solved = false;
+        //     return false;
+        // }
     }
 }

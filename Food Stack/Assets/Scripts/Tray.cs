@@ -20,7 +20,7 @@ public class Tray : MonoBehaviour
 
     public void AddToTray(FoodItems item)
     {
-        if (!items.Contains(item))
+        if (!items.Contains(item) && item.tag == "FoodItem")
         {
             items.Add(item);
             item.index = puzzle.currentIndex + 1;

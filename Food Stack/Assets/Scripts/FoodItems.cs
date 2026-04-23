@@ -18,7 +18,21 @@ public class FoodItems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<SpriteRenderer>().sortingOrder = index;
+        if (tray.items.Contains(gameObject.GetComponent<FoodItems>()))
+        {
+            for (int i = 0; i < tray.items.Count; i++)
+        {
+            if (gameObject.GetComponent<FoodItems>().foodName == tray.items[i].foodName)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sortingOrder = i+1;
+            }
+        }
+        } else
+        {
+           gameObject.GetComponent<SpriteRenderer>().sortingOrder = index; 
+        }
+        
+        
     }
 
     public String getString()
