@@ -11,13 +11,15 @@ public class PuzzleMaster : MonoBehaviour
     public List<String> answer;
     public bool solved = false;
 
-    public GameObject indicator;
-
     public int numberOfItems;
 
     public int currentIndex;
 
     public SolvedTray solvedTray;
+
+    public LevelUIManager levelUIManager;
+
+    private bool completionShown = false;
 
     /*
     when an item is clicked, change the sorting order to be one more than the current index?
@@ -34,12 +36,15 @@ public class PuzzleMaster : MonoBehaviour
     void Update()
     {
         isSolved();
-        if (solved)
+
+        if (solved && !completionShown)
         {
-            indicator.GetComponent<SpriteRenderer>().color = Color.green;
-        } else
-        {
-            indicator.GetComponent<SpriteRenderer>().color = Color.red;
+            completionShown = true;
+
+            if (levelUIManager != null)
+            {
+                levelUIManager.CompleteLevel();
+            }
         }
     }
 
